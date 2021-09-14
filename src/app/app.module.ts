@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './modules/app-routing.module';
 import { AppComponent } from './app.component';
+import { FilterPipe } from './components/search/search.pipe';
 import { LandingComponent } from './components/landing/landing.component';
 import { MaterialModule } from './modules/material.module';
 import { LoginComponent } from './components/login/login.component';
@@ -14,17 +16,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
+    FilterPipe,
     LandingComponent,
     LoginComponent,
     ProfileComponent,
     SearchComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
