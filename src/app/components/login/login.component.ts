@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiCallService } from 'src/app/services/api-call.service';
+// import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  articles: any = null;
+  constructor(
+    
+    private api: ApiCallService
+    ) { }
 
   ngOnInit(): void {
+    this.articles = this.api.searchArticles('bitcoin')
+      .subscribe(res => console.log(res));
   }
 
 }
